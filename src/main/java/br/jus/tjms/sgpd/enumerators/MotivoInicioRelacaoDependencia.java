@@ -1,0 +1,18 @@
+package br.jus.tjms.sgpd.enumerators;
+
+public enum MotivoInicioRelacaoDependencia {
+	
+	NASCIMENTO,
+	ADOCAO,
+	FILHO_POSTUMO,
+	TUTELA_DO_MENOR,
+	DECISAO_JUDICIAL,
+	INVALIDEZ,
+	CASAMENTO,
+	UNIAO_ESTAVEL,
+	OUTROS,
+	DEPENDENCIA_ECONOMICA,
+	INICIO_PJMS
+
+
+}

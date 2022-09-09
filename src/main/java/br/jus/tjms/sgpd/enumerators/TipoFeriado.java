@@ -1,0 +1,17 @@
+package br.jus.tjms.sgpd.enumerators;
+
+/**
+ * @version 1.0
+ * @created 06-nov-2015 16:31:05
+ */
+public enum TipoFeriado {
+	NACIONAL,
+	UNIVERSAL,
+	ESTADUAL,
+	MUNICIPAL,
+	JUDICIARIO_MS,
+	PONTO_FACULTATIVO_COM_REPOSICAO,
+	PONTO_FACULTATIVO_SEM_REPOSICAO,
+	RECESSO,
+	DISPENSA_DECISAO_ADMINISTRATIVA
+}

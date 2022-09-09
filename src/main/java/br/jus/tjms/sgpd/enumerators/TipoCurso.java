@@ -1,0 +1,22 @@
+package br.jus.tjms.sgpd.enumerators;
+
+/**
+ * @version 1.0
+ * @created 06-nov-2015 16:31:05
+ */
+public enum TipoCurso {
+	LIVRE,
+	CAPACITACAO_EXTERNO,
+	CAPACITACAO_INTERNO,
+	FUNDAMENTAL,
+	ENSINO_MEDIO,
+	TECNICO_PROFISSIONALIZANTE,
+	SEQUENCIAL,
+	GRADUACAO,
+	EXTENSAO,
+	ESPECIALIZACAO,
+	MESTRADO,
+	DOUTORADO,
+	POS_DOUTORADO,
+	OUTROS
+}

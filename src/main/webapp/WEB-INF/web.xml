@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>sgpd</display-name>
+
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+
+	<servlet>
+		<servlet-name>Resteasy</servlet-name>
+		<servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Resteasy</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	    <servlet-name>RESTEasy-JSAPI</servlet-name>
+	    <servlet-class>org.jboss.resteasy.jsapi.JSAPIServlet</servlet-class>
+	</servlet>
+	 
+	<servlet-mapping>
+	    <servlet-name>RESTEasy-JSAPI</servlet-name>
+	    <url-pattern>/rest-js/*</url-pattern>
+	</servlet-mapping>		
+
+	<context-param>
+		<param-name>resteasy.scan</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>resteasy.providers</param-name>
+		<param-value>br.jus.tjms.sgpd.service.rest.JacksonConfig</param-value>
+	</context-param>
+	<context-param>
+		<param-name>resteasy.use.deployment.sensitive.factory</param-name>
+		<param-value>false</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap</listener-class>
+	</listener>
+</web-app>

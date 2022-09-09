@@ -1,0 +1,25 @@
+package br.jus.tjms.sgpd.enumerators;
+
+/**
+ * @version 1.0
+ * @created 06-nov-2015 16:30:59
+ */
+public enum LocalidadeTipo {
+	
+	AGLOMERADO_RURAL,
+	AGLOMERADO_RURAL_EXTENSAO_URBANA,
+	AGLOMERADO_RURAL_ISOLADO,
+	ALDEIA,
+	CAPITAL,
+	CAPITAL_FEDERAL,	
+	CIDADE,
+	LOCAL,
+	LUGAREJO,
+	NUCLEO,
+	POVOADO,
+	PROPRIEDADE_RURAL,
+	VILA,
+	MUNICIPIO,
+	DISTRITO
+
+}

@@ -1,0 +1,114 @@
+package br.jus.tjms.sgpd.entity;
+
+import br.jus.tjms.auditor.annotation.Auditavel;
+import br.jus.tjms.sgpd.service.rest.v1.to.CargoAreaTO;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
+import javax.persistence.*;
+import java.io.Serializable;
+
+/**
+ * @version 1.0
+ * @created 04-nov-2015 14:16:57
+ */
+@Entity
+@Auditavel
+@Cacheable
+@NamedQueries({
+	@NamedQuery(name = "cargoArea.buscarPorCargo", query = "SELECT ca FROM CargoArea ca where ca.cargo.id = :id")
+})
+public class CargoArea implements Serializable {
+
+	private static final long serialVersionUID = -5682774188023543124L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@ManyToOne
+	@JoinColumn(name = "cargo_id", nullable = false)
+	private Cargo cargo;
+
+	@ManyToOne
+	@JoinColumn(name = "area_id", nullable = false)
+	private Area area;
+
+	public CargoArea() {
+		super();
+	}
+
+	public CargoArea(Long id) {
+		super();
+		this.id = id;
+	}
+	
+	public CargoArea(Long id, Cargo cargo, Area area) {
+		super();
+		this.id = id;
+		this.cargo = cargo;
+		this.area = area;
+	}
+
+	public CargoArea(CargoAreaTO cargoAreaTO) {
+		super();
+		this.id = cargoAreaTO.getId();
+		this.cargo = new Cargo(cargoAreaTO.getCargoId());
+		this.area = new Area(cargoAreaTO.getAreaId());
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Cargo getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(Cargo cargo) {
+		this.cargo = cargo;
+	}
+
+	public Area getArea() {
+		return area;
+	}
+
+	public void setArea(Area area) {
+		this.area = area;
+	}
+
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder(17, 37).append(id).toHashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null) {
+			return false;
+		}
+		if (obj == this) {
+			return true;
+		}
+		if (obj.getClass() != this.getClass()) {
+			return false;
+		}
+		CargoArea other = (CargoArea) obj;
+		return new EqualsBuilder().append(id, other.getId()).isEquals();
+	}
+
+	@Override
+	public String toString() {
+		return "CargoArea [id=" + id + ", cargo=" + cargo + ", area=" + area + "]";
+	}
+
+	public void alterar(CargoAreaTO cargoAreaTO) {
+		this.cargo = new Cargo(cargoAreaTO.getCargoId());
+		this.area = new Area(cargoAreaTO.getAreaId());
+	}
+
+}
